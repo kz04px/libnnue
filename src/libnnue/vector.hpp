@@ -2,6 +2,7 @@
 #define LIBNNUE_VECTOR_HPP
 
 #include <array>
+#include <cmath>
 #include <cstring>
 #include <fstream>
 #include <functional>

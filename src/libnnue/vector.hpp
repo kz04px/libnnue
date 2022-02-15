@@ -60,65 +60,57 @@ class Vector {
         return val;
     }
 
-    [[nodiscard]] constexpr auto apply(const std::function<T(T)> &func) const noexcept {
-        Vector<T, A> result;
+    constexpr auto apply(const std::function<T(T)> &func) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = func(m_data[i]);
+            m_data[i] = func(m_data[i]);
         }
-        return result;
+        return *this;
     }
 
     template <typename R>
-    [[nodiscard]] constexpr auto add(const Vector<R, A> &rhs) const noexcept {
-        Vector<T, A> result;
-
+    constexpr inline auto add(const Vector<R, A> &rhs) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] + rhs[i];
+            m_data[i] = m_data[i] + rhs[i];
         }
-
-        return result;
+        return *this;
     }
 
-    [[nodiscard]] constexpr auto sub(const Vector<T, A> &rhs) const noexcept {
-        Vector<T, A> result;
+    template <typename R>
+    constexpr auto sub(const Vector<R, A> &rhs) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] - rhs[i];
+            m_data[i] = m_data[i] - rhs[i];
         }
-        return result;
+        return *this;
     }
 
     template <typename F>
-    [[nodiscard]] constexpr auto mul(const F &n) const noexcept {
-        Vector<T, A> result;
+    constexpr auto mul(const F &n) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] * n;
+            m_data[i] = m_data[i] * n;
         }
-        return result;
+        return *this;
     }
 
     template <typename F>
-    [[nodiscard]] constexpr auto div(const F &n) const noexcept {
-        Vector<T, A> result;
+    constexpr auto div(const F &n) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] / n;
+            m_data[i] = m_data[i] / n;
         }
-        return result;
+        return *this;
     }
 
-    [[nodiscard]] constexpr auto rshift(const std::size_t n) const noexcept {
-        Vector<T, A> result;
+    constexpr auto rshift(const std::size_t n) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] >> n;
+            m_data[i] = m_data[i] >> n;
         }
-        return result;
+        return *this;
     }
 
-    [[nodiscard]] constexpr auto lshift(const std::size_t n) const noexcept {
-        Vector<T, A> result;
+    constexpr auto lshift(const std::size_t n) noexcept {
         for (size_type i = 0; i < A; ++i) {
-            result[i] = m_data[i] << n;
+            m_data[i] = m_data[i] << n;
         }
-        return result;
+        return *this;
     }
 
     [[nodiscard]] constexpr auto &at(const size_type idx) {

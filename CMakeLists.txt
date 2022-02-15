@@ -26,17 +26,4 @@ add_executable(
     tests/xor.cpp
 )
 
-# Add example
-add_executable(
-    simple
-    examples/simple.cpp
-)
-
-ADD_CUSTOM_TARGET(examples)
-
-ADD_DEPENDENCIES(
-    examples
-    simple
-)
-
 set_property(TARGET tests PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE FALSE)

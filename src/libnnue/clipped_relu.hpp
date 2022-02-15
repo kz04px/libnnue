@@ -1,6 +1,8 @@
 #ifndef LIBNNUE_CLIPPED_RELU_HPP
 #define LIBNNUE_CLIPPED_RELU_HPP
 
+#include <algorithm>
+#include <cassert>
 #include <cmath>
 
 namespace libnnue {

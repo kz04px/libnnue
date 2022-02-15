@@ -1,6 +1,7 @@
 #ifndef LIBNNUE_RELU_HPP
 #define LIBNNUE_RELU_HPP
 
+#include <cassert>
 #include <cmath>
 
 namespace libnnue {

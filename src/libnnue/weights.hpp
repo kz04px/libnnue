@@ -78,15 +78,15 @@ class Weights {
     std::array<T, in * out> m_data;
 };
 
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0) == 1);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1) == 2);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(2) == 3);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(3) == 4);
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0) == 1, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1) == 2, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(2) == 3, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(3) == 4, "Weights::at() failure");
 
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0, 0) == 1);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0, 1) == 2);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1, 0) == 3);
-static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1, 1) == 4);
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0, 0) == 1, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(0, 1) == 2, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1, 0) == 3, "Weights::at() failure");
+static_assert(Weights<int, 2, 2>({1, 2, 3, 4}).at(1, 1) == 4, "Weights::at() failure");
 
 }  // namespace libnnue
 

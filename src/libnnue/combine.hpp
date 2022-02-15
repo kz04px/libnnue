@@ -36,11 +36,15 @@ template <typename T, std::size_t A, std::size_t B, std::size_t C>
     return result;
 }
 
-static_assert(combine(Vector<int, 2>({1, 2}), Vector<int, 2>({3, 4})) == Vector<int, 4>({1, 2, 3, 4}));
-static_assert(combine(Vector<int, 2>({1, 2}), Vector<int, 3>({3, 4, 5})) == Vector<int, 5>({1, 2, 3, 4, 5}));
-static_assert(combine(Vector<int, 3>({1, 2, 3}), Vector<int, 2>({4, 5})) == Vector<int, 5>({1, 2, 3, 4, 5}));
+static_assert(combine(Vector<int, 2>({1, 2}), Vector<int, 2>({3, 4})) == Vector<int, 4>({1, 2, 3, 4}),
+              "Vector combination failure");
+static_assert(combine(Vector<int, 2>({1, 2}), Vector<int, 3>({3, 4, 5})) == Vector<int, 5>({1, 2, 3, 4, 5}),
+              "Vector combination failure");
+static_assert(combine(Vector<int, 3>({1, 2, 3}), Vector<int, 2>({4, 5})) == Vector<int, 5>({1, 2, 3, 4, 5}),
+              "Vector combination failure");
 static_assert(combine(Vector<int, 2>({1, 2}), Vector<int, 2>({3, 4}), Vector<int, 2>({5, 6})) ==
-              Vector<int, 6>({1, 2, 3, 4, 5, 6}));
+                  Vector<int, 6>({1, 2, 3, 4, 5, 6}),
+              "Vector combination failure");
 
 }  // namespace libnnue
 

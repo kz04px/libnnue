@@ -162,21 +162,21 @@ class Vector {
 };
 
 // operator==
-static_assert(Vector<int, 3>({1, 2, 3}) == Vector<int, 3>({1, 2, 3}));
+static_assert(Vector<int, 3>({1, 2, 3}) == Vector<int, 3>({1, 2, 3}), "operator== failed");
 // operator!=
-static_assert(Vector<int, 3>({1, 2, 3}) != Vector<int, 3>({5, 7, 9}));
+static_assert(Vector<int, 3>({1, 2, 3}) != Vector<int, 3>({5, 7, 9}), "operator!= failed");
 // add()
-static_assert(Vector<int, 3>({1, 2, 3}).add(Vector<int, 3>({4, 5, 6})) == Vector<int, 3>({5, 7, 9}));
+static_assert(Vector<int, 3>({1, 2, 3}).add(Vector<int, 3>({4, 5, 6})) == Vector<int, 3>({5, 7, 9}), "add() failed");
 // sub()
-static_assert(Vector<int, 3>({1, 2, 3}).sub(Vector<int, 3>({4, 5, 6})) == Vector<int, 3>({-3, -3, -3}));
+static_assert(Vector<int, 3>({1, 2, 3}).sub(Vector<int, 3>({4, 5, 6})) == Vector<int, 3>({-3, -3, -3}), "sub() failed");
 // mul()
-static_assert(Vector<int, 3>({1, 2, 3}).mul(2) == Vector<int, 3>({2, 4, 6}));
+static_assert(Vector<int, 3>({1, 2, 3}).mul(2) == Vector<int, 3>({2, 4, 6}), "mul() failed");
 // div()
-static_assert(Vector<int, 3>({2, 4, 6}).div(2) == Vector<int, 3>({1, 2, 3}));
+static_assert(Vector<int, 3>({2, 4, 6}).div(2) == Vector<int, 3>({1, 2, 3}), "div() failed");
 // rshift
-static_assert(Vector<int, 3>({0, 8, 256}).rshift(1) == Vector<int, 3>({0, 4, 128}));
+static_assert(Vector<int, 3>({0, 8, 256}).rshift(1) == Vector<int, 3>({0, 4, 128}), "rshift() failed");
 // lshift
-static_assert(Vector<int, 3>({0, 8, 256}).lshift(1) == Vector<int, 3>({0, 16, 512}));
+static_assert(Vector<int, 3>({0, 8, 256}).lshift(1) == Vector<int, 3>({0, 16, 512}), "lshift() failed");
 
 }  // namespace libnnue
 

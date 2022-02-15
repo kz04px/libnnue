@@ -8,9 +8,9 @@ template <typename T, T thr>
     return x >= thr;
 }
 
-static_assert(threshold<int, 3>(2) == 0);
-static_assert(threshold<int, 3>(3) == 1);
-static_assert(threshold<int, 3>(4) == 1);
+static_assert(threshold<int, 3>(2) == 0, "Threshold error");
+static_assert(threshold<int, 3>(3) == 1, "Threshold error");
+static_assert(threshold<int, 3>(4) == 1, "Threshold error");
 
 }  // namespace libnnue
 

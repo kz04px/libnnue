@@ -34,10 +34,10 @@ TEST_CASE("XOR - 2") {
     };
 
     // Create network
-    libnnue::Weights<float, 2, 2> weights1({20, -20, 20, -20});
-    libnnue::Weights<float, 2, 1> weights2({20, 20});
-    libnnue::Vector<float, 2> bias1({-10, 30});
-    libnnue::Vector<float, 1> bias2({-30});
+    libnnue::Weights<float, 2, 2> weights1({20.0f, -20.0f, 20.0f, -20.0f});
+    libnnue::Weights<float, 2, 1> weights2({20.0f, 20.0f});
+    libnnue::Vector<float, 2> bias1({-10.0f, 30.0f});
+    libnnue::Vector<float, 1> bias2({-30.0f});
 
     // Run tests
     for (const auto &[input, expected] : tests) {

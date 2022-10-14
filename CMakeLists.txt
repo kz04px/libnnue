@@ -1,29 +1,23 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 
-# Project
-project(libnnue VERSION 1.0 LANGUAGES CXX)
-
-# Base directory relative includes
-include_directories(src/)
-include_directories(libs/catch2/)
-
-# Flags
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wshadow")
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
-set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
-
-# Default build type
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
-# Add tests
-add_executable(
-    tests
-    tests/main.cpp
-    tests/xor.cpp
+project(
+    libnnue
+    VERSION 1.0
+    DESCRIPTION "A C++ NNUE library"
+    LANGUAGES CXX
 )
 
-set_property(TARGET tests PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE FALSE)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+add_library(nnue INTERFACE)
+
+target_include_directories(nnue INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/)
+
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    option(LIBATAXX_BUILD_TESTS "whether or not tests should be built" ON)
+
+    if(LIBATAXX_BUILD_TESTS)
+        enable_testing()
+        add_subdirectory(tests)
+    endif()
+endif()

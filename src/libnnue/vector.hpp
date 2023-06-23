@@ -157,6 +157,16 @@ class Vector {
         return m_data.end();
     }
 
+    template <std::size_t S>
+    [[nodiscard]] auto pad() const noexcept -> Vector<T, S> {
+        static_assert(S > A, "Vector padded size must be larger than original size");
+
+        Vector<T, S> out;
+        std::memcpy(out.data(), m_data.data(), A * sizeof(T));
+        std::memset(&out[A], static_cast<T>(0), S - A);
+        return out;
+    }
+
    private:
     std::array<T, A> m_data;
 };

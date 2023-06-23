@@ -20,6 +20,7 @@ add_executable(
     tests
     main.cpp
     xor.cpp
+    pad.cpp
 )
 
 target_link_libraries(

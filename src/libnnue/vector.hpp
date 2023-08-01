@@ -24,12 +24,7 @@ class Vector {
     }
 
     void load_file(std::ifstream &fs) {
-        for (std::size_t i = 0; i < A; ++i) {
-            if (fs.eof()) {
-                throw "asd";
-            }
-            fs.read(reinterpret_cast<char *>(&m_data[i]), sizeof(T));
-        }
+        fs.read(reinterpret_cast<char *>(&m_data[0]), sizeof(T) * A);
     }
 
     [[nodiscard]] constexpr auto data() noexcept {

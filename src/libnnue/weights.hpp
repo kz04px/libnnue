@@ -18,12 +18,7 @@ class Weights {
     }
 
     void load_file(std::ifstream &fs) {
-        for (std::size_t i = 0; i < in * out; ++i) {
-            if (fs.eof()) {
-                throw "asd";
-            }
-            fs.read(reinterpret_cast<char *>(&m_data[i]), sizeof(T));
-        }
+        fs.read(reinterpret_cast<char *>(&m_data[0]), sizeof(T) * in * out);
     }
 
     [[nodiscard]] constexpr size_type size() const noexcept {

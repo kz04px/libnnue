@@ -23,7 +23,7 @@ class Vector {
     constexpr Vector(const std::array<T, A> &d) : m_data{d} {
     }
 
-    void load_file(std::ifstream &fs) {
+    void load_file(std::istream &fs) {
         fs.read(reinterpret_cast<char *>(&m_data[0]), sizeof(T) * A);
     }
 

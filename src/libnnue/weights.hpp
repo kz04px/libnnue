@@ -17,7 +17,7 @@ class Weights {
     constexpr Weights(const std::array<T, in * out> &d) : m_data{d} {
     }
 
-    void load_file(std::ifstream &fs) {
+    void load_file(std::istream &fs) {
         fs.read(reinterpret_cast<char *>(&m_data[0]), sizeof(T) * in * out);
     }
 
